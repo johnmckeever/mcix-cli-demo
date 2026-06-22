@@ -1,0 +1,912 @@
+{
+  "primary_pipeline" : "391096a8-6b24-4e73-9615-7ba504541474",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "5d472535-85cb-48c5-a5a7-e323c13461f9",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "02649cbd-5cd2-4ca4-bdce-786c4737e16e"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "da950e1e-c1f2-4c86-995e-b3aaa49ce0df",
+        "parameters" : {
+          "missingcolmode" : " ",
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576,
+          "dataset" : "#psGlobal.DatasetDir#/dimdate.ds"
+        }
+      } ],
+      "op" : "PxDataSet",
+      "id" : "5acb93d7-0140-4b4b-9728-b2c9a397a2f0",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 126.72,
+          "label" : "dsDimdate",
+          "y_pos" : 174.24
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 0,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "92ccef08-2aa2-4c0e-ac16-ea3809c39982",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "79511e61-b6cc-4d1c-b86b-5bba3298806d"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "c104f482-1fcd-4cd0-9c08-8fcf295a0ba9",
+        "parameters" : {
+          "buf_mode" : "default"
+        }
+      } ],
+      "op" : "PxCopy",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "5acb93d7-0140-4b4b-9728-b2c9a397a2f0",
+          "type_attr" : "PRIMARY",
+          "id" : "02649cbd-5cd2-4ca4-bdce-786c4737e16e",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "dimdateds",
+                "x_pos" : 0,
+                "label" : "dimdateds",
+                "label_allow_return_key" : "save",
+                "width" : 85,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "dimdateds",
+          "port_id_ref" : "5d472535-85cb-48c5-a5a7-e323c13461f9"
+        } ],
+        "id" : "a25ff539-45bd-40de-b059-0d5513408ff7",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "da950e1e-c1f2-4c86-995e-b3aaa49ce0df",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "d613c2d9-774b-46e7-af33-6fcddf23340c",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxCopy.svg",
+          "x_pos" : 316.8,
+          "label" : "cpDimdate",
+          "y_pos" : 174.24
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "force" : " ",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : -1
+            }
+          }
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "d613c2d9-774b-46e7-af33-6fcddf23340c",
+          "type_attr" : "PRIMARY",
+          "id" : "79511e61-b6cc-4d1c-b86b-5bba3298806d",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "dimdate",
+                "x_pos" : 0,
+                "label" : "dimdate",
+                "label_allow_return_key" : "save",
+                "width" : 53,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "dimdate",
+          "port_id_ref" : "92ccef08-2aa2-4c0e-ac16-ea3809c39982"
+        } ],
+        "id" : "c63545df-fe31-4cf3-bfc8-30eecc6aba0a",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "c104f482-1fcd-4cd0-9c08-8fcf295a0ba9",
+        "parameters" : {
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "outputAcpShouldHide" : false,
+          "table_name" : "em.dimdate",
+          "inputName" : "dimdate",
+          "session.autocommit_mode" : "off",
+          "write_mode" : "insert",
+          "node_number" : 0,
+          "session.code_page" : "default",
+          "InputlinkOrderingList" : [ {
+            "link_label" : "0",
+            "link_name" : "dimdate"
+          } ],
+          "node_count" : 1,
+          "table_action" : "append",
+          "showPartType" : true,
+          "showCollType" : false,
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "enableFlowAcpControl" : true,
+          "part_type" : "auto",
+          "session.array_size" : 2000,
+          "showSortOptions" : false,
+          "session.schema_reconciliation.drop_unmatched_fields" : true,
+          "session.fail_on_row_error_px" : true,
+          "logging.log_column_values" : false,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "0ea23629-1125-45eb-926a-ec53ddc09a22",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "c63545df-fe31-4cf3-bfc8-30eecc6aba0a",
+          "outputs_order" : ""
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 459.36,
+          "label" : "odbcDimdate",
+          "y_pos" : 174.24
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "inputcolProperties" : [ {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Key",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "datekey",
+          "TempOldColumnName" : "datekey",
+          "ColumnName" : "datekey",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : true,
+          "Nullable" : false
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "DATE, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "date",
+          "TempOldColumnName" : "date",
+          "ColumnName" : "date",
+          "Length" : "–",
+          "DataType" : "DATE",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "year",
+          "TempOldColumnName" : "year",
+          "ColumnName" : "year",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(2), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "quarter",
+          "TempOldColumnName" : "quarter",
+          "ColumnName" : "quarter",
+          "Length" : 2,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "month",
+          "TempOldColumnName" : "month",
+          "ColumnName" : "month",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "day",
+          "TempOldColumnName" : "day",
+          "ColumnName" : "day",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "day_of_week",
+          "TempOldColumnName" : "day_of_week",
+          "ColumnName" : "day_of_week",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "week_of_year",
+          "TempOldColumnName" : "week_of_year",
+          "ColumnName" : "week_of_year",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(2), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "is_weekend",
+          "TempOldColumnName" : "is_weekend",
+          "ColumnName" : "is_weekend",
+          "Length" : 2,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        } ],
+        "InputlinkOrderingList" : [ {
+          "link_label" : "0",
+          "link_name" : "dimdate"
+        } ],
+        "output_count" : 0,
+        "input_count" : 1,
+        "execmode" : "default_par",
+        "allow_column_mapping" : false
+      }
+    } ],
+    "description" : "Load Date dimension on PostgreSQL",
+    "id" : "391096a8-6b24-4e73-9615-7ba504541474",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  }, {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "da950e1e-c1f2-4c86-995e-b3aaa49ce0df",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "date_key",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "date_key",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "date",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "date",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "day",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "day",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "month",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "month",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "quarter",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "quarter",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "day_of_week",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "day_of_week",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "week_of_year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "week_of_year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "is_weekend",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "is_weekend",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-warehousedemo-WarehouseDemo.dbo.dim_date",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "c104f482-1fcd-4cd0-9c08-8fcf295a0ba9",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.date_key",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "datekey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "datekey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.date",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "date",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "date",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.year",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.quarter",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "quarter",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "quarter",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.month",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "month",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "month",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.day",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "day",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "day",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.day_of_week",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "day_of_week",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "day_of_week",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.week_of_year",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "week_of_year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "week_of_year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "dimdateds.is_weekend",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "is_weekend",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "is_weekend",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "b644aedc-9983-435d-9b34-54d29c3a6f54",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : { },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

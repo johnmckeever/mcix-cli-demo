@@ -1,0 +1,377 @@
+{
+  "doc_type" : "subpipeline",
+  "version" : "3.0",
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id" : "ad0226ef-24fb-4863-94d9-7de47b34cc4f",
+  "primary_pipeline" : "f990c5f7-bbe8-4765-9fe2-79d5eab0b9ac",
+  "pipelines" : [ {
+    "id" : "f990c5f7-bbe8-4765-9fe2-79d5eab0b9ac",
+    "runtime_ref" : "pxOsh",
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "7c166c48-df11-4b5d-bdb0-8bff2760e1dc",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "c780d646-d7cc-491c-9240-1957b8da0c59"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "parameters" : {
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        },
+        "schema_ref" : "38caace7-7f21-4952-9a36-583a3cddc640"
+      } ],
+      "op" : "PxCopy",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "3f958ecc-d734-4243-886b-5c0edbcf19bb",
+          "type_attr" : "PRIMARY",
+          "id" : "3e3394f1-78ef-4c1a-bbe2-9faf19d239ab",
+          "link_name" : "refusstates",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "path" : "",
+                "outline" : true,
+                "hotspot" : false,
+                "id" : "refusstates",
+                "label" : "refusstates",
+                "position" : "middle",
+                "class_name" : ""
+              } ]
+            }
+          },
+          "port_id_ref" : "05802eeb-9ce2-4e5e-923d-d8d2e3a099d3"
+        } ],
+        "id" : "278d99b6-53d1-4fda-a596-ea37741dd00d",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        },
+        "schema_ref" : "0cf488a3-c0b8-49a7-a1fd-da07020dc5fe"
+      } ],
+      "id" : "8109e600-e07f-40bb-b70f-298b886aeb4a",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxCopy.svg",
+          "x_pos" : 504.0,
+          "label" : "cpRefusstates",
+          "y_pos" : 216.0
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "force" : " ",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "05802eeb-9ce2-4e5e-923d-d8d2e3a099d3",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "3e3394f1-78ef-4c1a-bbe2-9faf19d239ab"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "parameters" : {
+          "reject_from_link" : -1,
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "reject_threshold" : 0,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        },
+        "schema_ref" : "0cf488a3-c0b8-49a7-a1fd-da07020dc5fe"
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "session.schema_reconciliation.fail_on_code_page_mismatch" : false,
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "session.array_size" : 2000,
+          "table_name" : "refusstates",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        }
+      },
+      "id" : "3f958ecc-d734-4243-886b-5c0edbcf19bb",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 216.0,
+          "label" : "odbcRefusstates",
+          "y_pos" : 216.0
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 0,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "8109e600-e07f-40bb-b70f-298b886aeb4a",
+          "type_attr" : "PRIMARY",
+          "id" : "c780d646-d7cc-491c-9240-1957b8da0c59",
+          "link_name" : "region",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "path" : "",
+                "outline" : true,
+                "hotspot" : false,
+                "id" : "region",
+                "label" : "region",
+                "position" : "middle",
+                "class_name" : ""
+              } ]
+            }
+          },
+          "port_id_ref" : "7c166c48-df11-4b5d-bdb0-8bff2760e1dc"
+        } ],
+        "id" : "68cfbf6e-8c39-497c-834a-daaabe16439b",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort"
+          }
+        },
+        "parameters" : {
+          "runtime_column_propagation" : 0
+        },
+        "schema_ref" : "38caace7-7f21-4952-9a36-583a3cddc640"
+      } ],
+      "id" : "5d014bde-e1ae-465d-9008-2d40cebd012e",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "68cfbf6e-8c39-497c-834a-daaabe16439b"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/Output.svg",
+          "x_pos" : 912,
+          "label" : "Exit node 1",
+          "y_pos" : 216
+        }
+      }
+    } ],
+    "app_data" : {
+      "datastage" : {
+        "runtimecolumnpropagation" : "true"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    }
+  } ],
+  "schemas" : [ {
+    "id" : "38caace7-7f21-4952-9a36-583a3cddc640",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "refusstates.statename",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "statename",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "refusstates.regionname",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "regionname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "regionname",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "0cf488a3-c0b8-49a7-a1fd-da07020dc5fe",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 3,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "stateabbrv",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "stateabbrv",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "statename",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "statename",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "regionname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "regionname",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 4,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "regionabbrv",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "regionabbrv",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.refusstates",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "app_data" : {
+    "datastage" : {
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "saveChangeFrequency" : "apply_changes_temporarily"
+    }
+  },
+  "external_paramsets" : [ {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  } ],
+  "name" : "scRegionReference"
+}

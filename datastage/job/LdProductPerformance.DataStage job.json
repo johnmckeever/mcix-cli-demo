@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "LdProductPerformance.DataStage job",
+    "asset_id" : "2ea8e614-9dd2-4007-b21e-dc8e24403d13",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "f8c95d60-bb1b-4bb1-a285-2e438a470fad",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "LdProductPerformance"
+    }
+  }
+}

@@ -1,0 +1,656 @@
+{
+  "primary_pipeline" : "fc164e82-d056-46dd-a6f4-623f55b4f879",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "0fe99e98-2c84-4577-8c60-8d219670d6cf",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "418008a9-1315-4aea-9a1e-79ffa2625509"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "a4848500-b338-4724-a63e-de8d3622357b",
+        "parameters" : {
+          "missingcolmode" : " ",
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576,
+          "dataset" : "#psGlobal.ReportDir#/quarterlyfinancials.ds"
+        }
+      } ],
+      "op" : "PxDataSet",
+      "id" : "9e8ec4d4-6b04-4637-a499-ec88c23da26b",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 126.72,
+          "label" : "dsQuarterlyfinancialsds",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 0,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "ba7de3b6-1740-4b77-835f-5929e85929cc",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "5b4bb201-02aa-468b-9fae-ca573ed7bdc8"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "10d33d03-16e8-43d2-8b06-e61c0b570f6e",
+        "parameters" : {
+          "buf_mode" : "default"
+        }
+      } ],
+      "op" : "PxCopy",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "9e8ec4d4-6b04-4637-a499-ec88c23da26b",
+          "type_attr" : "PRIMARY",
+          "id" : "418008a9-1315-4aea-9a1e-79ffa2625509",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "quarterlyfinancialsds",
+                "x_pos" : 0,
+                "label" : "quarterlyfinancialsds",
+                "label_allow_return_key" : "save",
+                "width" : 105,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "quarterlyfinancialsds",
+          "port_id_ref" : "0fe99e98-2c84-4577-8c60-8d219670d6cf"
+        } ],
+        "id" : "7c7bfade-eac5-4624-864d-002855de1b41",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "a4848500-b338-4724-a63e-de8d3622357b",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "7baa0c67-b205-4e64-a9fd-165e1fcfe946",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxCopy.svg",
+          "x_pos" : 332.64,
+          "label" : "cpQuarterlyfinancials",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "force" : " ",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : -1
+            }
+          }
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "7baa0c67-b205-4e64-a9fd-165e1fcfe946",
+          "type_attr" : "PRIMARY",
+          "id" : "5b4bb201-02aa-468b-9fae-ca573ed7bdc8",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "quarterlyfinancials",
+                "x_pos" : 0,
+                "label" : "quarterlyfinancials",
+                "label_allow_return_key" : "save",
+                "width" : 127,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "quarterlyfinancials",
+          "port_id_ref" : "ba7de3b6-1740-4b77-835f-5929e85929cc"
+        } ],
+        "id" : "b6552be5-96c3-421d-92f9-08a3c769bef0",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "10d33d03-16e8-43d2-8b06-e61c0b570f6e",
+        "parameters" : {
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "outputAcpShouldHide" : false,
+          "table_name" : "em.quarterlyfinancials",
+          "inputName" : "quarterlyfinancials",
+          "session.autocommit_mode" : "off",
+          "write_mode" : "insert_then_update",
+          "node_number" : 0,
+          "session.code_page" : "default",
+          "node_count" : 1,
+          "showPartType" : true,
+          "showCollType" : false,
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "enableFlowAcpControl" : true,
+          "part_type" : "auto",
+          "session.array_size" : 1,
+          "showSortOptions" : false,
+          "session.schema_reconciliation.drop_unmatched_fields" : true,
+          "session.fail_on_row_error_px" : true,
+          "logging.log_column_values" : false,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "4b3ad177-bf03-4db2-9ae1-affb691f018c",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 570.24,
+          "label" : "odbcQuarterlyfinancials",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "inputcolProperties" : [ {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Key, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "year",
+          "TempOldColumnName" : "year",
+          "ColumnName" : "year",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : true,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(2), Key, Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "quarter",
+          "TempOldColumnName" : "quarter",
+          "ColumnName" : "quarter",
+          "Length" : 2,
+          "DataType" : "VARCHAR",
+          "Key" : true,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "NUMERIC(15, 2), Null",
+          "Scale" : 2,
+          "TimeScale" : 0,
+          "OldColumnName" : "totalrevenue",
+          "TempOldColumnName" : "totalrevenue",
+          "ColumnName" : "totalrevenue",
+          "Length" : 15,
+          "DataType" : "NUMERIC",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "NUMERIC(15, 2), Null",
+          "Scale" : 2,
+          "TimeScale" : 0,
+          "OldColumnName" : "totalcost",
+          "TempOldColumnName" : "totalcost",
+          "ColumnName" : "totalcost",
+          "Length" : 15,
+          "DataType" : "NUMERIC",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "NUMERIC(15, 2), Null",
+          "Scale" : 2,
+          "TimeScale" : 0,
+          "OldColumnName" : "totalprofit",
+          "TempOldColumnName" : "totalprofit",
+          "ColumnName" : "totalprofit",
+          "Length" : 15,
+          "DataType" : "NUMERIC",
+          "Key" : false,
+          "Nullable" : true
+        } ],
+        "output_count" : 0,
+        "input_count" : 1,
+        "execmode" : "default_par",
+        "allow_column_mapping" : false
+      }
+    } ],
+    "description" : "Load Quarterly Financials table on PostgreSQL",
+    "id" : "fc164e82-d056-46dd-a6f4-623f55b4f879",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  }, {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "a4848500-b338-4724-a63e-de8d3622357b",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "quarter",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "quarter",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalrevenue",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalrevenue",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalcost",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalcost",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalprofit",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalprofit",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    } ]
+  }, {
+    "id" : "10d33d03-16e8-43d2-8b06-e61c0b570f6e",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "quarterlyfinancialsds.year",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "year",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "year",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "quarterlyfinancialsds.quarter",
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "quarter",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "quarter",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "quarterlyfinancialsds.totalrevenue",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalrevenue",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalrevenue",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "quarterlyfinancialsds.totalcost",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalcost",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalcost",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 15,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "quarterlyfinancialsds.totalprofit",
+        "max_length" : 15,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "totalprofit",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "totalprofit",
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.quarterlyfinancials",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "5a81e473-53ea-4d1a-a6a7-06dd21c2551e",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : { },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

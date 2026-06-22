@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdQuarterlyFinancials.DataStage sequence",
+    "description" : "",
+    "asset_id" : "b68b19d2-f799-4811-9721-9422ccd31663",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "5c5abed5-7f0e-4470-b4da-1ec0c5edfd07",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "5c5abed5-7f0e-4470-b4da-1ec0c5edfd07",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdQuarterlyFinancials",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdQuarterlyFinancials"
+    }
+  }
+}

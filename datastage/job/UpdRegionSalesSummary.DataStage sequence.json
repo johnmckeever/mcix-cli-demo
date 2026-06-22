@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdRegionSalesSummary.DataStage sequence",
+    "description" : "",
+    "asset_id" : "f48b5619-3cbf-488c-aac0-d781d036e445",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "22f2fe47-3ce3-4475-99a0-8572815cee4a",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "22f2fe47-3ce3-4475-99a0-8572815cee4a",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdRegionSalesSummary",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdRegionSalesSummary"
+    }
+  }
+}

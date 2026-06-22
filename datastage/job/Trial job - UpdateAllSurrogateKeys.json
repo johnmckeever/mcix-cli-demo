@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "name" : "Trial job - UpdateAllSurrogateKeys",
+    "description" : "Trial job and run created for the pipeline: UpdateAllSurrogateKeys",
+    "asset_id" : "9d4bc1fb-9475-47c6-9c16-b90b5ca9857a",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "05a7b6cb-3fe1-4382-a8b2-983449c88540",
+      "description" : "Trial job and run created for the pipeline: UpdateAllSurrogateKeys",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "sub_type" : "oflow_trial_run",
+        "pipeline_id" : "05a7b6cb-3fe1-4382-a8b2-983449c88540",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdateAllSurrogateKeys",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdateAllSurrogateKeys"
+    }
+  }
+}

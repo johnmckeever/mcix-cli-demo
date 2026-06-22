@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "LdFactSales.DataStage job",
+    "asset_id" : "354ba536-9b91-4ac4-a217-c7ce4b9b9596",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "41ae353e-03c2-4080-93bd-70beb05ba0d1",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "LdFactSales"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "metadata" : {
+    "name" : "TxCreateDateSource.DataStage job",
+    "asset_id" : "add9660e-87e1-4d6d-b35c-ffe87052f4ea",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "a340a2c8-e0a6-481e-b0f0-7a8d4aca645d",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_id" : "ba5a0fbd-a6e1-4a5b-b88d-4967a465bb8f",
+        "env_type" : "data_intg_flow",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "job_parameters" : [ ],
+      "last_run_status" : "deprecated field",
+      "retention_policy" : { },
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "TxCreateDateSource"
+    }
+  }
+}

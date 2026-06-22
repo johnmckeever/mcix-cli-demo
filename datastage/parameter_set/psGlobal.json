@@ -1,0 +1,38 @@
+{
+  "parameter_set" : {
+    "name" : "psGlobal",
+    "description" : "",
+    "parameters" : [ {
+      "name" : "DatasetDir",
+      "description" : "",
+      "prompt" : "Dataset Directory",
+      "type" : "path",
+      "value" : "/px-storage/data/electromart/dev/dataset"
+    }, {
+      "name" : "LandingDir",
+      "description" : "",
+      "prompt" : "Sequential File Directory",
+      "type" : "path",
+      "value" : "/px-storage/data/electromart/dev/file"
+    }, {
+      "name" : "StateFileDir",
+      "description" : "",
+      "prompt" : "State File Directory",
+      "type" : "path",
+      "value" : "/px-storage/data/electromart/dev/file"
+    }, {
+      "name" : "ReportDir",
+      "description" : "",
+      "prompt" : "Report File Directory",
+      "type" : "path",
+      "value" : "/px-storage/data/electromart/dev/report"
+    }, {
+      "name" : "RejectDir",
+      "description" : "",
+      "prompt" : "Reject File Directory",
+      "type" : "path",
+      "value" : "/px-storage/data/electromart/dev/reject"
+    } ],
+    "value_sets" : [ ]
+  }
+}

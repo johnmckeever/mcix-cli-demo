@@ -1,0 +1,973 @@
+{
+  "primary_pipeline" : "d79e8783-6df1-4532-b56e-45df54788d02",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "d416d232-5eb4-4681-9ee7-5b97acff6f4a",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "e66402a8-5981-49d6-a044-d7275104d8e1"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "64a880cf-082d-4430-bee2-501c4bf419ab",
+        "parameters" : {
+          "missingcolmode" : " ",
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576,
+          "dataset" : "#psGlobal.DatasetDir#/scddimsupplier.ds"
+        }
+      } ],
+      "op" : "PxDataSet",
+      "id" : "751f60ed-6fd2-4420-8b90-1d843e96c495",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 126.72,
+          "label" : "dsScddimsuppierds",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 0,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "ce9c434a-cf7e-4c87-a8bf-0bf8b1f5fd3a",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "ec7b2f18-0264-45c8-bf0d-c9f46bdc9d12"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "5cf92f53-58da-4c7d-baf9-d2cefbb6797c",
+        "parameters" : {
+          "buf_mode" : "default"
+        }
+      } ],
+      "op" : "PxCopy",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "751f60ed-6fd2-4420-8b90-1d843e96c495",
+          "type_attr" : "PRIMARY",
+          "id" : "e66402a8-5981-49d6-a044-d7275104d8e1",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "scddimsupplier",
+                "x_pos" : 0,
+                "label" : "scddimsupplier",
+                "label_allow_return_key" : "save",
+                "width" : 97,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "scddimsupplier",
+          "port_id_ref" : "d416d232-5eb4-4681-9ee7-5b97acff6f4a"
+        } ],
+        "id" : "0e07ad13-d30f-4844-9269-6e89a0123c69",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "64a880cf-082d-4430-bee2-501c4bf419ab",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "99b99f05-bdd9-486d-80f8-85ed14ec0bbc",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxCopy.svg",
+          "x_pos" : 332.64,
+          "label" : "cpDimsupplier",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "force" : " ",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : -1
+            }
+          }
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "99b99f05-bdd9-486d-80f8-85ed14ec0bbc",
+          "type_attr" : "PRIMARY",
+          "id" : "ec7b2f18-0264-45c8-bf0d-c9f46bdc9d12",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "dimsupplier",
+                "x_pos" : 0,
+                "label" : "dimsupplier",
+                "label_allow_return_key" : "save",
+                "width" : 119,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "dimsupplier",
+          "port_id_ref" : "ce9c434a-cf7e-4c87-a8bf-0bf8b1f5fd3a"
+        } ],
+        "id" : "1a1a0efc-9af1-4912-8bb7-371b6e36b6ad",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "5cf92f53-58da-4c7d-baf9-d2cefbb6797c",
+        "parameters" : {
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "outputAcpShouldHide" : false,
+          "table_name" : "em.dimsupplier",
+          "inputName" : "dimsupplier",
+          "session.autocommit_mode" : "off",
+          "write_mode" : "insert",
+          "node_number" : 0,
+          "session.code_page" : "default",
+          "InputlinkOrderingList" : [ {
+            "link_label" : "0",
+            "link_name" : "dimsupplier"
+          } ],
+          "node_count" : 1,
+          "table_action" : "append",
+          "showPartType" : true,
+          "showCollType" : false,
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "enableFlowAcpControl" : true,
+          "part_type" : "auto",
+          "session.array_size" : 2000,
+          "showSortOptions" : false,
+          "session.schema_reconciliation.drop_unmatched_fields" : true,
+          "session.fail_on_row_error_px" : true,
+          "logging.log_column_values" : false,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "a24d537b-5597-41cd-96a2-2e6e43ef5884",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "1a1a0efc-9af1-4912-8bb7-371b6e36b6ad",
+          "outputs_order" : ""
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 570.24,
+          "label" : "odbcDimsupplier",
+          "y_pos" : 190.07999999999998
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "inputcolProperties" : [ {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Key",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "supplierkey",
+          "TempOldColumnName" : "supplierkey",
+          "ColumnName" : "supplierkey",
+          "Length" : "–",
+          "DataType" : "INTEGER",
+          "Key" : true,
+          "Nullable" : false
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(255), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "supplierid",
+          "TempOldColumnName" : "supplierid",
+          "ColumnName" : "supplierid",
+          "Length" : 255,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(255), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "suppliername",
+          "TempOldColumnName" : "suppliername",
+          "ColumnName" : "suppliername",
+          "Length" : 255,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(255), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "contactperson",
+          "TempOldColumnName" : "contactperson",
+          "ColumnName" : "contactperson",
+          "Length" : 255,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(50), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "phone",
+          "TempOldColumnName" : "phone",
+          "ColumnName" : "phone",
+          "Length" : 50,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(255), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "email",
+          "TempOldColumnName" : "email",
+          "ColumnName" : "email",
+          "Length" : 255,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(50), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "country",
+          "TempOldColumnName" : "country",
+          "ColumnName" : "country",
+          "Length" : 50,
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "DATE, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "effectivedate",
+          "TempOldColumnName" : "effectivedate",
+          "ColumnName" : "effectivedate",
+          "Length" : "–",
+          "DataType" : "DATE",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "DATE, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "expirationdate",
+          "TempOldColumnName" : "expirationdate",
+          "ColumnName" : "expirationdate",
+          "Length" : "–",
+          "DataType" : "DATE",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "Signed" : false,
+          "Metadata" : "CHAR(1), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "currentflag",
+          "TempOldColumnName" : "currentflag",
+          "ColumnName" : "currentflag",
+          "Length" : 1,
+          "DataType" : "CHAR",
+          "Key" : false,
+          "Nullable" : true
+        } ],
+        "InputlinkOrderingList" : [ {
+          "link_label" : "0",
+          "link_name" : "dimsupplier"
+        } ],
+        "output_count" : 0,
+        "input_count" : 1,
+        "execmode" : "default_par",
+        "allow_column_mapping" : false
+      }
+    } ],
+    "description" : "Load Supplier dimension table on PostgreSQL",
+    "id" : "d79e8783-6df1-4532-b56e-45df54788d02",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  }, {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "64a880cf-082d-4430-bee2-501c4bf419ab",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "supplierkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "supplierkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "supplierid",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "suppliername",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "suppliername",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "contactperson",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "contactperson",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "phone",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "email",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "country",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "country",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "expirationdate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "currentflag",
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "5cf92f53-58da-4c7d-baf9-d2cefbb6797c",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.supplierkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "supplierkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "supplierkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.supplierid",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "supplierid",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.suppliername",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "suppliername",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "suppliername",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.contactperson",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "contactperson",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "contactperson",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.phone",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "phone",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.email",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "email",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.country",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "country",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "country",
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.effectivedate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.expirationdate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "expirationdate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "scddimsupplier.currentflag",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "currentflag",
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "dfa8bbf8-fa27-45fa-bf5d-de4fcd6cb7c8",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : { },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

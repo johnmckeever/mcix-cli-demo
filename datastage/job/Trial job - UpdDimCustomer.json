@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "name" : "Trial job - UpdDimCustomer",
+    "description" : "Trial job and run created for the pipeline: UpdDimCustomer",
+    "asset_id" : "641d080a-5460-4e92-8ae6-3bb9305551d1",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "72ec8791-9932-4849-ae3f-9be3d420ae41",
+      "description" : "Trial job and run created for the pipeline: UpdDimCustomer",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "sub_type" : "oflow_trial_run",
+        "pipeline_id" : "72ec8791-9932-4849-ae3f-9be3d420ae41",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdDimCustomer",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdDimCustomer"
+    }
+  }
+}

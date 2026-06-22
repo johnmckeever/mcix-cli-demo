@@ -1,0 +1,2094 @@
+{
+  "primary_pipeline" : "50501651-8834-4dd7-a70a-01e655159dca",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "bfda968b-3aa9-4347-b2b9-b0ebbe11c904",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "2d2d2117-406e-4e43-b8f7-abefd364d4d3"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "a939fe9b-baa2-4b71-8f41-a51c91709797",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_mode" : "default",
+          "lookup_type" : "empty",
+          "has_ref_output" : false,
+          "reject_number" : 0
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "7fd2f233-3879-4682-a543-d286e32234fc",
+        "name" : "RDS postgres-dev_cp4d",
+        "properties" : {
+          "currentOutputLinkType" : "REFERENCE",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.dimcustomer",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        }
+      },
+      "id" : "0269309f-82ea-483a-9ed4-1109c31a393b",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 364.32,
+          "label" : "odbcDimcustomer",
+          "y_pos" : 0
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "bc654df0-5b80-42ce-a8d5-e3093fc5d0b5",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "0ced62d2-4654-42d3-99c8-f65baa4c8011"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 2,
+              "max" : 1
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "afdb6af2-00a1-475b-8fe3-1a38b094e2d2",
+        "parameters" : {
+          "valueDerivation" : [ {
+            "parsedExpression" : "0",
+            "columnName" : "dummy"
+          } ],
+          "outputlink" : "O",
+          "buf_mode" : "default"
+        }
+      }, {
+        "id" : "7fe39323-6592-487b-9f90-d39c2697c089",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "c8251a1a-1ffe-428b-b120-e390b9f16d4c"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 2,
+              "max" : 1
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "1f5f9d59-4d2f-428e-8869-0a78697cfbf3",
+        "parameters" : {
+          "dimUpdate" : [ {
+            "parsedExpression" : "NextSurrogateKey()",
+            "SCDPurpose" : "1",
+            "columnName" : "customerkey"
+          }, {
+            "parsedExpression" : "source.customerid",
+            "SCDPurpose" : "2",
+            "columnName" : "customerid"
+          }, {
+            "parsedExpression" : "source.fullname",
+            "SCDPurpose" : "4",
+            "columnName" : "fullname"
+          }, {
+            "parsedExpression" : "source.email",
+            "SCDPurpose" : "4",
+            "columnName" : "email"
+          }, {
+            "parsedExpression" : "source.phone",
+            "SCDPurpose" : "4",
+            "columnName" : "phone"
+          }, {
+            "parsedExpression" : "source.address",
+            "SCDPurpose" : "4",
+            "columnName" : "address"
+          }, {
+            "parsedExpression" : "source.city",
+            "SCDPurpose" : "4",
+            "columnName" : "city"
+          }, {
+            "parsedExpression" : "source.state",
+            "SCDPurpose" : "4",
+            "columnName" : "state"
+          }, {
+            "parsedExpression" : "source.zipcode",
+            "SCDPurpose" : "4",
+            "columnName" : "zipcode"
+          }, {
+            "parsedExpression" : "source.customersegment",
+            "SCDPurpose" : "4",
+            "columnName" : "customersegment"
+          }, {
+            "parsedExpression" : "'9999-12-31'",
+            "SCDPurpose" : "7",
+            "expire" : "source.extracteddate",
+            "columnName" : "expirationdate"
+          }, {
+            "parsedExpression" : "'Y'",
+            "SCDPurpose" : "5",
+            "expire" : "'N'",
+            "columnName" : "currentflag"
+          }, {
+            "parsedExpression" : "source.extracteddate",
+            "SCDPurpose" : "6",
+            "columnName" : "effectivedate"
+          } ],
+          "valueDerivation" : [ {
+            "parsedExpression" : "NextSurrogateKey()",
+            "columnName" : "customerkey"
+          }, {
+            "parsedExpression" : "'9999-12-31'",
+            "columnName" : "expirationdate"
+          }, {
+            "parsedExpression" : "'Y'",
+            "columnName" : "currentflag"
+          } ],
+          "outputlink" : "D",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "PxSCD",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "0269309f-82ea-483a-9ed4-1109c31a393b",
+          "type_attr" : "REFERENCE",
+          "id" : "2d2d2117-406e-4e43-b8f7-abefd364d4d3",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "reference",
+                "x_pos" : 0,
+                "label" : "reference",
+                "label_allow_return_key" : "save",
+                "width" : 61,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__referenceDefaultRunMetricsLinkProcessingStyle___HKgoN"
+            }
+          },
+          "link_name" : "reference",
+          "port_id_ref" : "bfda968b-3aa9-4347-b2b9-b0ebbe11c904"
+        } ],
+        "id" : "bf27c610-0606-470b-b126-6e0eeaa1155c",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "a939fe9b-baa2-4b71-8f41-a51c91709797",
+        "parameters" : {
+          "lookupDerivation" : [ {
+            "SCDPurpose" : "1",
+            "isKey" : false,
+            "columnName" : "customerkey"
+          }, {
+            "parsedExpression" : "source.customerid",
+            "SCDPurpose" : "2",
+            "isKey" : true,
+            "columnName" : "customerid"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "fullname"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "email"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "phone"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "address"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "city"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "state"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "zipcode"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "customersegment"
+          }, {
+            "SCDPurpose" : "6",
+            "isKey" : false,
+            "columnName" : "effectivedate"
+          }, {
+            "SCDPurpose" : "7",
+            "isKey" : false,
+            "columnName" : "expirationdate"
+          }, {
+            "SCDPurpose" : "5",
+            "isKey" : false,
+            "columnName" : "currentflag"
+          } ],
+          "runtime_column_propagation" : 0
+        }
+      }, {
+        "links" : [ {
+          "node_id_ref" : "18de87ba-8055-4f8d-873c-06fa04cdc54a",
+          "type_attr" : "PRIMARY",
+          "id" : "64f61f20-de12-4de7-acb6-99e5397942ac",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "source",
+                "x_pos" : 0,
+                "label" : "source",
+                "label_allow_return_key" : "save",
+                "width" : 85,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "source",
+          "port_id_ref" : "82ae77b2-8539-44f2-985d-a6700918b04c"
+        } ],
+        "id" : "3df7d175-bfe6-4024-9601-ea1c9a6d5eee",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "52888b68-ee85-49a7-86c7-af20ac0cebbe",
+        "parameters" : {
+          "lookupDerivation" : [ {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "customerid"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "fullname"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "email"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "phone"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "address"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "city"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "state"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "zipcode"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "customersegment"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "extracteddate"
+          } ],
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "d4a65d66-fff2-487e-9f07-013cfd4b1a6d",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "bf27c610-0606-470b-b126-6e0eeaa1155c|3df7d175-bfe6-4024-9601-ea1c9a6d5eee",
+          "outputs_order" : "bc654df0-5b80-42ce-a8d5-e3093fc5d0b5|7fe39323-6592-487b-9f90-d39c2697c089"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxSCD.svg",
+          "description" : "Added a description here. And another",
+          "x_pos" : 364.32,
+          "label" : "scdCustomer",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "showPartType" : true,
+        "showCollType" : false,
+        "enableSchemalessDesign" : false,
+        "preserve" : -3,
+        "inputName" : "reference",
+        "showSortOptions" : false,
+        "combinability" : "auto",
+        "retrievekeys" : "1",
+        "connection_asset_id" : "",
+        "output_count" : 2,
+        "keysourcetype" : "file",
+        "execmode" : "default_par",
+        "input_count" : 2,
+        "keyfile" : "#psGlobal.LandingDir#/skdimcustomer",
+        "seedvalue" : "1",
+        "outputLinkField" : "output"
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "82ae77b2-8539-44f2-985d-a6700918b04c",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "64f61f20-de12-4de7-acb6-99e5397942ac"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "52888b68-ee85-49a7-86c7-af20ac0cebbe",
+        "parameters" : {
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "PxModify",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "8b45feb6-4eda-41d1-b1c2-68ed564a2e26",
+          "type_attr" : "PRIMARY",
+          "id" : "c30dc00a-d7bd-4320-9828-024ddc4b102c",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "input",
+                "x_pos" : 0,
+                "label" : "input",
+                "label_allow_return_key" : "save",
+                "width" : 53,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "input",
+          "port_id_ref" : "8e026333-9bed-4822-ae57-780d674d62cb"
+        } ],
+        "id" : "76a88907-7d51-4cb1-ad99-f7d3d9ef412c",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "1ddf7723-da54-4185-91b1-4ea7c919ed8e",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "18de87ba-8055-4f8d-873c-06fa04cdc54a",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxModify.svg",
+          "x_pos" : 174.24,
+          "label" : "mdExtracteddate",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "modifyspecProperties" : [ {
+          "modifyspec" : "extracteddate:date = date_from_timestamp (extracteddate)",
+          "specsuffix" : ";"
+        } ],
+        "endingquote" : "'",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "8e026333-9bed-4822-ae57-780d674d62cb",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "c30dc00a-d7bd-4320-9828-024ddc4b102c"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "1ddf7723-da54-4185-91b1-4ea7c919ed8e",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "7fd2f233-3879-4682-a543-d286e32234fc",
+        "name" : "RDS postgres-dev_cp4d",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.transformedcustomer",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        }
+      },
+      "id" : "8b45feb6-4eda-41d1-b1c2-68ed564a2e26",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 31.68,
+          "label" : "odbcTransformedcustomer",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxDataSet",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "d4a65d66-fff2-487e-9f07-013cfd4b1a6d",
+          "type_attr" : "PRIMARY",
+          "id" : "c8251a1a-1ffe-428b-b120-e390b9f16d4c",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--same-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "width" : 50,
+                "tooltip" : "Same partition",
+                "x_pos" : -15,
+                "id" : "dec-9K",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "insert_update",
+                "x_pos" : 0,
+                "label" : "insert_update",
+                "label_allow_return_key" : "save",
+                "width" : 152,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "insert_update",
+          "port_id_ref" : "7fe39323-6592-487b-9f90-d39c2697c089"
+        } ],
+        "id" : "73abc6b0-3f73-46d6-a44e-17e6de585f5b",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "1f5f9d59-4d2f-428e-8869-0a78697cfbf3",
+        "parameters" : {
+          "datasetmode" : ">| [ds",
+          "dataAssetName" : "#psGlobal.DatasetDir#/scddimcustomer.ds",
+          "part_type" : "same",
+          "part_coll" : "part_type",
+          "dataset" : "#psGlobal.DatasetDir#/scddimcustomer.ds",
+          "runtime_column_propagation" : 0,
+          "registerDataAsset" : false
+        }
+      } ],
+      "id" : "bc881d80-92f2-40d5-a349-4e2d9918bd08",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 649.4399999999999,
+          "label" : "dsScddimcustomerds",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "output_count" : 0,
+        "input_count" : 1,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxSequentialFile",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "d4a65d66-fff2-487e-9f07-013cfd4b1a6d",
+          "type_attr" : "PRIMARY",
+          "id" : "0ced62d2-4654-42d3-99c8-f65baa4c8011",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--collection.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "width" : 50,
+                "tooltip" : "Collection",
+                "x_pos" : -15,
+                "id" : "dec-9M",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "output",
+                "x_pos" : 0,
+                "label" : "output",
+                "label_allow_return_key" : "save",
+                "width" : 42,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "output",
+          "port_id_ref" : "bc654df0-5b80-42ce-a8d5-e3093fc5d0b5"
+        } ],
+        "id" : "d111783b-c1f4-4ce8-9930-3733379c9e48",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "afdb6af2-00a1-475b-8fe3-1a38b094e2d2",
+        "parameters" : {
+          "final_delim" : "end",
+          "showPartType" : false,
+          "null_field_sep_flag" : false,
+          "null_field" : "'NULL'",
+          "file_location" : "file_system",
+          "firstLineColumnNames" : " ",
+          "showCollType" : true,
+          "enableFlowAcpControl" : true,
+          "inputName" : "output",
+          "showSortOptions" : true,
+          "append-overwrite" : "overwrite",
+          "rejects" : "continue",
+          "inputcolProperties" : [ {
+            "Unicode" : false,
+            "Signed" : true,
+            "Metadata" : "INTEGER",
+            "Scale" : 0,
+            "TimeScale" : 0,
+            "OldColumnName" : "dummy",
+            "TempOldColumnName" : "dummy",
+            "ColumnName" : "dummy",
+            "Length" : "–",
+            "MisFieldProperties" : "",
+            "DataType" : "INTEGER",
+            "Key" : false,
+            "Nullable" : false
+          } ],
+          "file" : [ "#psGlobal.RejectDir#/scdCustomer.txt" ],
+          "quote" : "double",
+          "connection_asset_id" : "",
+          "writemethod" : " ",
+          "nocleanup" : " ",
+          "dataAssetName" : "#psGlobal.RejectDir#/scdCustomer.txt",
+          "runtime_column_propagation" : 0,
+          "file_format" : "sequential",
+          "registerDataAsset" : true,
+          "delim" : "','"
+        }
+      } ],
+      "id" : "e4998c3f-ba20-4727-9742-934d3bfb6a49",
+      "type" : "binding",
+      "app_data" : {
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxSequentialFile.svg",
+          "x_pos" : 364.32,
+          "label" : "seqCustomerReject",
+          "y_pos" : 316.8
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 0,
+        "nls_map_name" : "UTF-8",
+        "input_count" : 1,
+        "execmode" : "default_seq"
+      }
+    } ],
+    "description" : "Process the Customer slowly changing dimension",
+    "id" : "50501651-8834-4dd7-a70a-01e655159dca",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  }, {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "a939fe9b-baa2-4b71-8f41-a51c91709797",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "customerkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "customerkey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customerid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "fullname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "fullname",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "email",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "phone",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "address",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "address",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "city",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "city",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "state",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "zipcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "zipcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customersegment",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customersegment",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "expirationdate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "currentflag",
+        "time_scale" : 0,
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "afdb6af2-00a1-475b-8fe3-1a38b094e2d2",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 6,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "dummy",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "1f5f9d59-4d2f-428e-8869-0a78697cfbf3",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "customerkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "customerkey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.customerid",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.fullname",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "fullname",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.email",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.phone",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.address",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "address",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.city",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "city",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.state",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.zipcode",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "zipcode",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.customersegment",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customersegment",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.extracteddate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    } ]
+  }, {
+    "id" : "52888b68-ee85-49a7-86c7-af20ac0cebbe",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.customerid",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.fullname",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "fullname",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.email",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.phone",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.address",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "address",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.city",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "city",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.state",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.zipcode",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "zipcode",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.customersegment",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customersegment",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "source_field_id" : "input.extracteddate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "extracteddate",
+      "type" : "date",
+      "app_data" : {
+        "odbc_type" : "DATE",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    } ]
+  }, {
+    "id" : "1ddf7723-da54-4185-91b1-4ea7c919ed8e",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customerid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "fullname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "fullname",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "email",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "email",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "phone",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "phone",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "address",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "address",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "city",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "city",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "state",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 20,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "zipcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "zipcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customersegment",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customersegment",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 26,
+        "max_length" : 26,
+        "is_signed" : false
+      },
+      "nullable" : false,
+      "name" : "extracteddate",
+      "type" : "timestamp",
+      "app_data" : {
+        "time_scale" : 6,
+        "odbc_type" : "TIMESTAMP",
+        "sign_option" : 0,
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATETIME"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "c2af0cbf-53ad-496d-aca2-ac80175772cd",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : { },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "metadata" : {
+    "name" : "TxFactFinanceDsBAK.DataStage job",
+    "asset_id" : "ce1ee2a3-6693-4753-bd3f-13f5d32babae",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "e686dced-9656-498b-99b2-9478aa03b8d6",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_id" : "ba5a0fbd-a6e1-4a5b-b88d-4967a465bb8f",
+        "env_type" : "data_intg_flow",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "job_parameters" : [ ],
+      "last_run_status" : "deprecated field",
+      "retention_policy" : { },
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "TxFactFinanceDsBAK"
+    }
+  }
+}

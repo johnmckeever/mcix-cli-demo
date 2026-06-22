@@ -1,0 +1,1878 @@
+{
+  "primary_pipeline" : "4f46380e-b36d-475d-9764-a7c85064cd09",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "e4a1b991-579a-4125-b41d-dae23d1c84d5",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "8ea9d3ed-09a3-4f69-b72e-27d8f72ac874"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "5077c2a6-5f1c-4358-941f-69c26f68762f",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "lookup_type" : "empty",
+          "max_mem_buf_size" : 3145728,
+          "has_ref_output" : false,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "7fd2f233-3879-4682-a543-d286e32234fc",
+        "name" : "RDS postgres-dev_cp4d",
+        "properties" : {
+          "currentOutputLinkType" : "REFERENCE",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.dimproduct",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        }
+      },
+      "id" : "020da32c-c8ca-4ed8-99a5-8070bbd166bf",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 364.32,
+          "label" : "odbcDimproduct",
+          "y_pos" : 0
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "f2d2273b-077a-474d-b772-44d48d60de32",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "0cbf52a8-8504-4af8-b7b7-128a1b4227d0"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 2,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "6140de21-22e8-4788-a540-bfe4f70d9c39",
+        "parameters" : {
+          "outputName" : "output",
+          "valueDerivation" : [ {
+            "parsedExpression" : "0",
+            "columnName" : "dummy"
+          } ],
+          "outputlink" : "O",
+          "buf_mode" : "default"
+        }
+      }, {
+        "id" : "279855d8-2386-4063-8f2d-8525f19f061d",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "ea30f9c9-0669-4a1c-ab98-e2e438d18962"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 2,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "cd957a4a-74f1-41b9-a292-b8e3b02d978b",
+        "parameters" : {
+          "dimUpdate" : [ {
+            "parsedExpression" : "NextSurrogateKey()",
+            "SCDPurpose" : "1",
+            "columnName" : "productkey"
+          }, {
+            "parsedExpression" : "source.productcode",
+            "SCDPurpose" : "2",
+            "columnName" : "productcode"
+          }, {
+            "parsedExpression" : "source.productname",
+            "SCDPurpose" : "4",
+            "columnName" : "productname"
+          }, {
+            "parsedExpression" : "source.category",
+            "SCDPurpose" : "4",
+            "columnName" : "category"
+          }, {
+            "parsedExpression" : "source.price",
+            "SCDPurpose" : "4",
+            "columnName" : "price"
+          }, {
+            "parsedExpression" : "source.cost",
+            "SCDPurpose" : "4",
+            "columnName" : "cost"
+          }, {
+            "parsedExpression" : "source.inventoryquantity",
+            "SCDPurpose" : "4",
+            "columnName" : "inventoryquantity"
+          }, {
+            "parsedExpression" : "source.supplierid",
+            "SCDPurpose" : "4",
+            "columnName" : "supplierid"
+          }, {
+            "parsedExpression" : "source.extracteddate",
+            "SCDPurpose" : "6",
+            "columnName" : "effectivedate"
+          }, {
+            "parsedExpression" : "'9999-12-31'",
+            "SCDPurpose" : "7",
+            "expire" : "source.extracteddate",
+            "columnName" : "expirationdate"
+          }, {
+            "parsedExpression" : "'Y'",
+            "SCDPurpose" : "5",
+            "expire" : "'N'",
+            "columnName" : "currentflag"
+          } ],
+          "outputName" : "insert_update",
+          "valueDerivation" : [ {
+            "parsedExpression" : "NextSurrogateKey()",
+            "columnName" : "productkey"
+          }, {
+            "parsedExpression" : "'9999-12-31'",
+            "columnName" : "expirationdate"
+          }, {
+            "parsedExpression" : "'Y'",
+            "columnName" : "currentflag"
+          } ],
+          "outputlink" : "D",
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "PxSCD",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "020da32c-c8ca-4ed8-99a5-8070bbd166bf",
+          "type_attr" : "REFERENCE",
+          "id" : "8ea9d3ed-09a3-4f69-b72e-27d8f72ac874",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "reference",
+                "x_pos" : 0,
+                "label" : "reference",
+                "label_allow_return_key" : "save",
+                "width" : 61,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__referenceDefaultRunMetricsLinkProcessingStyle___HKgoN"
+            }
+          },
+          "link_name" : "reference",
+          "port_id_ref" : "e4a1b991-579a-4125-b41d-dae23d1c84d5"
+        } ],
+        "id" : "b81c8377-c767-40a4-b821-0840de0bb05a",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "5077c2a6-5f1c-4358-941f-69c26f68762f",
+        "parameters" : {
+          "lookupDerivation" : [ {
+            "SCDPurpose" : "1",
+            "isKey" : false,
+            "columnName" : "productkey"
+          }, {
+            "parsedExpression" : "source.productcode",
+            "SCDPurpose" : "2",
+            "isKey" : true,
+            "columnName" : "productcode"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "productname"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "category"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "price"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "cost"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "inventoryquantity"
+          }, {
+            "SCDPurpose" : "4",
+            "isKey" : false,
+            "columnName" : "supplierid"
+          }, {
+            "SCDPurpose" : "6",
+            "isKey" : false,
+            "columnName" : "effectivedate"
+          }, {
+            "SCDPurpose" : "7",
+            "isKey" : false,
+            "columnName" : "expirationdate"
+          }, {
+            "SCDPurpose" : "5",
+            "isKey" : false,
+            "columnName" : "currentflag"
+          } ],
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      }, {
+        "links" : [ {
+          "node_id_ref" : "4a0b16d2-d9d9-4221-9306-60e2c414ceb5",
+          "type_attr" : "PRIMARY",
+          "id" : "90d55960-d040-4ea7-85db-756acff6a391",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "source",
+                "x_pos" : 0,
+                "label" : "source",
+                "label_allow_return_key" : "save",
+                "width" : 85,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "source",
+          "port_id_ref" : "f166adb8-6e40-460b-a3ae-be0f7de205d1"
+        } ],
+        "id" : "7441559e-c06b-44ba-bb53-423078bfcbb3",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "0caf8634-ddd4-4f5c-aacd-90269e91c2d5",
+        "parameters" : {
+          "lookupDerivation" : [ {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "productcode"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "productname"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "category"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "price"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "cost"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "inventoryquantity"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "supplierid"
+          }, {
+            "SCDPurpose" : "0",
+            "isKey" : false,
+            "columnName" : "extracteddate"
+          } ],
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "5e95ef2f-da25-4d5a-803d-18b2cff33c57",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "b81c8377-c767-40a4-b821-0840de0bb05a|7441559e-c06b-44ba-bb53-423078bfcbb3",
+          "outputs_order" : "f2d2273b-077a-474d-b772-44d48d60de32|279855d8-2386-4063-8f2d-8525f19f061d"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxSCD.svg",
+          "x_pos" : 364.32,
+          "label" : "scdProduct",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "retrievekeys" : "1",
+        "output_count" : 2,
+        "keysourcetype" : "file",
+        "input_count" : 2,
+        "keyfile" : "#psGlobal.LandingDir#/skdimproduct",
+        "dbtype" : "db2",
+        "seedvalue" : "1",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "f166adb8-6e40-460b-a3ae-be0f7de205d1",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "90d55960-d040-4ea7-85db-756acff6a391"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "0caf8634-ddd4-4f5c-aacd-90269e91c2d5",
+        "parameters" : {
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "PxModify",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "9cd71fb8-b691-44d2-b64c-c8abdb796506",
+          "type_attr" : "PRIMARY",
+          "id" : "9f8be196-7a9f-4651-9778-99f1ccfa9634",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "input",
+                "x_pos" : 0,
+                "label" : "input",
+                "label_allow_return_key" : "save",
+                "width" : 53,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "input",
+          "port_id_ref" : "839951ca-7cd4-44aa-83e9-e374d779a62a"
+        } ],
+        "id" : "444ed41c-2448-448b-8d8f-8b47a055ca4a",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "78a6c0d5-861e-483d-b825-a1ace5ecfe53",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "4a0b16d2-d9d9-4221-9306-60e2c414ceb5",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxModify.svg",
+          "x_pos" : 174.24,
+          "label" : "mdExtracteddate",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 1,
+        "modifyspecProperties" : [ {
+          "modifyspec" : "extracteddate:date = date_from_timestamp (extracteddate)",
+          "specsuffix" : ";"
+        } ],
+        "endingquote" : "'",
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "839951ca-7cd4-44aa-83e9-e374d779a62a",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "9f8be196-7a9f-4651-9778-99f1ccfa9634"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "78a6c0d5-861e-483d-b825-a1ace5ecfe53",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "7fd2f233-3879-4682-a543-d286e32234fc",
+        "name" : "RDS postgres-dev_cp4d",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.stgproduct",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        }
+      },
+      "id" : "9cd71fb8-b691-44d2-b64c-c8abdb796506",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 31.68,
+          "label" : "odbcStgproduct",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxDataSet",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "5e95ef2f-da25-4d5a-803d-18b2cff33c57",
+          "type_attr" : "PRIMARY",
+          "id" : "ea30f9c9-0669-4a1c-ab98-e2e438d18962",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--same-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "width" : 50,
+                "tooltip" : "Same partition",
+                "x_pos" : -15,
+                "id" : "dec-9K",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "insert_update",
+                "x_pos" : 0,
+                "label" : "insert_update",
+                "label_allow_return_key" : "save",
+                "width" : 152,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "insert_update",
+          "port_id_ref" : "279855d8-2386-4063-8f2d-8525f19f061d"
+        } ],
+        "id" : "3e6770a4-4955-43db-be29-879253f3f30c",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "cd957a4a-74f1-41b9-a292-b8e3b02d978b",
+        "parameters" : {
+          "datasetmode" : ">| [ds",
+          "dataAssetName" : "#psGlobal.DatasetDir#/scddimproduct.ds",
+          "part_type" : "same",
+          "part_coll" : "part_type",
+          "dataset" : "#psGlobal.DatasetDir#/scddimproduct.ds",
+          "runtime_column_propagation" : 0,
+          "registerDataAsset" : false
+        }
+      } ],
+      "id" : "329c9480-97f8-4bd0-8652-74d523f77d1c",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 649.4399999999999,
+          "label" : "dsScddimproductds",
+          "y_pos" : 142.56
+        }
+      },
+      "parameters" : {
+        "output_count" : 0,
+        "input_count" : 1,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxSequentialFile",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "5e95ef2f-da25-4d5a-803d-18b2cff33c57",
+          "type_attr" : "PRIMARY",
+          "id" : "0cbf52a8-8504-4af8-b7b7-128a1b4227d0",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--collection.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "width" : 50,
+                "tooltip" : "Collection",
+                "x_pos" : -15,
+                "id" : "dec-9M",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "output",
+                "x_pos" : 0,
+                "label" : "output",
+                "label_allow_return_key" : "save",
+                "width" : 42,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "output",
+          "port_id_ref" : "f2d2273b-077a-474d-b772-44d48d60de32"
+        } ],
+        "id" : "035c775f-cbd3-4296-82c4-e19a8961303e",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "6140de21-22e8-4788-a540-bfe4f70d9c39",
+        "parameters" : {
+          "final_delim" : "end",
+          "showPartType" : false,
+          "null_field_sep_flag" : false,
+          "null_field" : "'NULL'",
+          "file_location" : "file_system",
+          "firstLineColumnNames" : " ",
+          "showCollType" : true,
+          "enableFlowAcpControl" : true,
+          "inputName" : "output",
+          "showSortOptions" : false,
+          "append-overwrite" : "overwrite",
+          "rejects" : "continue",
+          "inputcolProperties" : [ {
+            "Unicode" : false,
+            "Signed" : true,
+            "Metadata" : "INTEGER",
+            "Scale" : 0,
+            "TimeScale" : 0,
+            "OldColumnName" : "dummy",
+            "TempOldColumnName" : "dummy",
+            "ColumnName" : "dummy",
+            "Length" : "–",
+            "MisFieldProperties" : "",
+            "DataType" : "INTEGER",
+            "Key" : false,
+            "Nullable" : false
+          } ],
+          "file" : [ "#psGlobal.RejectDir#/scdProduct.txt" ],
+          "quote" : "double",
+          "connection_asset_id" : "",
+          "writemethod" : " ",
+          "nocleanup" : " ",
+          "dataAssetName" : "#psGlobal.RejectDir#/scdProduct.txt",
+          "file_format" : "sequential",
+          "registerDataAsset" : true,
+          "delim" : "','"
+        }
+      } ],
+      "id" : "1d252ecc-e484-4a78-a325-c145bbee56db",
+      "type" : "binding",
+      "app_data" : {
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxSequentialFile.svg",
+          "x_pos" : 364.32,
+          "label" : "seqProductReject",
+          "y_pos" : 316.8
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 0,
+        "nls_map_name" : "UTF-8",
+        "input_count" : 1,
+        "execmode" : "default_seq"
+      }
+    } ],
+    "description" : "Process the Product slowly changing dimension",
+    "id" : "4f46380e-b36d-475d-9764-a7c85064cd09",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  }, {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "5077c2a6-5f1c-4358-941f-69c26f68762f",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "productkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "productkey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productname",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "category",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "category",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "price",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "price",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "cost",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "cost",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "inventoryquantity",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "inventoryquantity",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "supplierid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "expirationdate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "currentflag",
+        "time_scale" : 0,
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "6140de21-22e8-4788-a540-bfe4f70d9c39",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 6,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "dummy",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "cd957a4a-74f1-41b9-a292-b8e3b02d978b",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.productcode",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.productname",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productname",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.category",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "category",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.price",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "price",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.cost",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "cost",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.inventoryquantity",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "inventoryquantity",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.supplierid",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "source.extracteddate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "effectivedate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "effectivedate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "reference.productkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "productkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "productkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "reference.expirationdate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "expirationdate",
+      "type" : "date",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 1,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "reference.currentflag",
+        "max_length" : 1,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currentflag",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "CHAR",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    } ]
+  }, {
+    "id" : "0caf8634-ddd4-4f5c-aacd-90269e91c2d5",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.productcode",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.productname",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productname",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.category",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "category",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.price",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "price",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.cost",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "cost",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.inventoryquantity",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "inventoryquantity",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.supplierid",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "input.extracteddate",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "extracteddate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "extracteddate",
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    } ]
+  }, {
+    "id" : "78a6c0d5-861e-483d-b825-a1ace5ecfe53",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 255,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productname",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productname",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 100,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "category",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "category",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "price",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "price",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "cost",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "cost",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "inventoryquantity",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "inventoryquantity",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "supplierid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "supplierid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 26,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 26,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "extracteddate",
+      "type" : "timestamp",
+      "app_data" : {
+        "column_reference" : "extracteddate",
+        "time_scale" : 6,
+        "odbc_type" : "TIMESTAMP",
+        "apt_field_properties" : "null_field=''",
+        "sign_option" : 0,
+        "table_def" : "ODBC-postgreSQL-ww2_117.stgproduct",
+        "array_handling" : 0,
+        "sync_indicator" : false,
+        "is_unicode_string" : false,
+        "type_code" : "DATETIME"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "209346d9-df17-465e-a681-6ecf91e2e647",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : { },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

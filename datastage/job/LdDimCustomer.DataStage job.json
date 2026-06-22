@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "LdDimCustomer.DataStage job",
+    "asset_id" : "006532a1-f9d5-43b3-a3b0-cbad4c12bdf1",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "d6f6d11f-ca21-4dcd-a8ad-9f4a9b9dcd46",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "LdDimCustomer"
+    }
+  }
+}

@@ -1,0 +1,1923 @@
+{
+  "primary_pipeline" : "77966d77-590a-4ef6-abc2-2bba862ffd93",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "997b02bc-e80e-4547-89ed-c221a3df7b5f",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "abc14ae2-dfce-4fa1-acb4-98c6df1b04e0"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "4a504c04-83bb-46a5-a12f-8eb3546af083",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_mode" : "default",
+          "reject_number" : 0
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "PRIMARY",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.transformedsales",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "f4d6bfda-4c1e-4844-b865-3c3e433b2c25",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 31.68,
+          "label" : "odbcTransformedsales",
+          "y_pos" : 269.28
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "70cd412d-ac07-4fb0-bac0-cda35708d86b",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "90849c3d-bd66-4119-8206-2429d084c7c6"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "0da3568e-7f69-4e7c-820f-7797ecaf480e",
+        "parameters" : {
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "PxLookup",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "f4d6bfda-4c1e-4844-b865-3c3e433b2c25",
+          "type_attr" : "PRIMARY",
+          "id" : "abc14ae2-dfce-4fa1-acb4-98c6df1b04e0",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "transformedsales",
+                "x_pos" : 0,
+                "label" : "transformedsales",
+                "label_allow_return_key" : "save",
+                "width" : 105,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "transformedsales",
+          "port_id_ref" : "997b02bc-e80e-4547-89ed-c221a3df7b5f"
+        } ],
+        "id" : "8b4ba031-cf9c-41a0-8c18-9d5bd54ffe46",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483644
+            }
+          }
+        },
+        "schema_ref" : "4a504c04-83bb-46a5-a12f-8eb3546af083",
+        "parameters" : {
+          "allow_dups" : " ",
+          "runtime_column_propagation" : 0
+        }
+      }, {
+        "links" : [ {
+          "node_id_ref" : "7c5c1808-bbc0-4446-a124-712cf9928c5b",
+          "type_attr" : "REFERENCE",
+          "id" : "5f536416-b98b-4d21-83d3-fc17eec4e16f",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "product_supplier",
+                "x_pos" : 0,
+                "label" : "product_supplier",
+                "label_allow_return_key" : "save",
+                "width" : 52,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__referenceDefaultRunMetricsLinkProcessingStyle___HKgoN"
+            }
+          },
+          "link_name" : "product_supplier",
+          "port_id_ref" : "430a4f5c-2c84-475f-ad08-aa7c3e80d8d1"
+        } ],
+        "id" : "bd1cf2d9-d28e-47b9-8a28-0c03b20abda3",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483646
+            }
+          }
+        },
+        "schema_ref" : "43707e6a-b9ea-413a-b92a-51b01b39e60d",
+        "parameters" : {
+          "allow_dups" : " ",
+          "lookupDerivation" : [ {
+            "parsedExpression" : "transformedsales.productcode",
+            "keyType" : "0",
+            "columnName" : "productcode",
+            "sourceColumn" : "transformedsales.productcode"
+          } ],
+          "conditionNotMet" : "fail",
+          "runtime_column_propagation" : 0,
+          "lookupFail" : "drop"
+        }
+      }, {
+        "links" : [ {
+          "node_id_ref" : "8a5c58cb-414c-458b-81b8-d138691c9cdc",
+          "type_attr" : "REFERENCE",
+          "id" : "db16602c-6849-4340-b30c-6cefe1042941",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "customer",
+                "x_pos" : 0,
+                "label" : "customer",
+                "label_allow_return_key" : "save",
+                "width" : 109,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__referenceDefaultRunMetricsLinkProcessingStyle___HKgoN"
+            }
+          },
+          "link_name" : "customer",
+          "port_id_ref" : "76669c32-de4a-4a99-a10a-2d389c08b323"
+        } ],
+        "id" : "9e6cfdcd-b5ff-4a02-8fac-3385ef8337cb",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483645
+            }
+          }
+        },
+        "schema_ref" : "9973ba71-9aea-4aeb-b897-d3864650c2ee",
+        "parameters" : {
+          "allow_dups" : " ",
+          "lookupDerivation" : [ {
+            "parsedExpression" : "transformedsales.customerid",
+            "keyType" : "0",
+            "columnName" : "customerid",
+            "sourceColumn" : "transformedsales.customerid"
+          } ],
+          "conditionNotMet" : "fail",
+          "runtime_column_propagation" : 0,
+          "lookupFail" : "drop"
+        }
+      }, {
+        "links" : [ {
+          "node_id_ref" : "f7a52da5-c086-47aa-bf55-cddf026f0754",
+          "type_attr" : "REFERENCE",
+          "id" : "1f63b02f-fcf9-42b9-bb2e-1d451586f896",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "date",
+                "x_pos" : 0,
+                "label" : "date",
+                "label_allow_return_key" : "save",
+                "width" : 53,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__referenceDefaultRunMetricsLinkProcessingStyle___HKgoN"
+            }
+          },
+          "link_name" : "date",
+          "port_id_ref" : "6fae1a8f-e196-499b-9f0b-f8c8cf131277"
+        } ],
+        "id" : "1336cd99-f929-4e5c-abf1-8cff14dad08a",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483644
+            }
+          }
+        },
+        "schema_ref" : "378c34eb-65b7-4c68-9088-342709fdfbef",
+        "parameters" : {
+          "allow_dups" : " ",
+          "lookupDerivation" : [ {
+            "parsedExpression" : "transformedsales.salesdate",
+            "keyType" : "0",
+            "columnName" : "date",
+            "sourceColumn" : "transformedsales.salesdate"
+          } ],
+          "conditionNotMet" : "fail",
+          "runtime_column_propagation" : 0,
+          "lookupFail" : "drop"
+        }
+      } ],
+      "id" : "7c14b2c0-7679-4ee8-9884-d8cf48ce8ade",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "8b4ba031-cf9c-41a0-8c18-9d5bd54ffe46|bd1cf2d9-d28e-47b9-8a28-0c03b20abda3|9e6cfdcd-b5ff-4a02-8fac-3385ef8337cb|1336cd99-f929-4e5c-abf1-8cff14dad08a",
+          "outputs_order" : "70cd412d-ac07-4fb0-bac0-cda35708d86b"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxLookup.svg",
+          "resize_height" : 48,
+          "is_resized" : true,
+          "x_pos" : 237.6,
+          "label" : "luSurrogatekeys",
+          "y_pos" : 269.28,
+          "resize_width" : 294
+        }
+      },
+      "parameters" : {
+        "showPartType" : true,
+        "showCollType" : false,
+        "enableSchemalessDesign" : false,
+        "preserve" : -3,
+        "inputName" : "transformedsales",
+        "showSortOptions" : false,
+        "combinability" : "auto",
+        "inputcolProperties" : [ {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "quote=none, null_field=''",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "salesid",
+          "TempOldColumnName" : "salesid",
+          "ColumnName" : "salesid",
+          "Length" : "–",
+          "MisFieldProperties" : "",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(11), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "customerid",
+          "TempOldColumnName" : "customerid",
+          "ColumnName" : "customerid",
+          "Length" : 11,
+          "MisFieldProperties" : "",
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(50), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "productcode",
+          "TempOldColumnName" : "productcode",
+          "ColumnName" : "productcode",
+          "Length" : 50,
+          "MisFieldProperties" : "",
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "quote=none, null_field=''",
+          "Signed" : false,
+          "Metadata" : "NUMERIC(10, 2), Null",
+          "Scale" : 2,
+          "TimeScale" : 0,
+          "OldColumnName" : "salesamount",
+          "TempOldColumnName" : "salesamount",
+          "ColumnName" : "salesamount",
+          "Length" : 10,
+          "MisFieldProperties" : "",
+          "DataType" : "NUMERIC",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "DATE, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "salesdate",
+          "TempOldColumnName" : "salesdate",
+          "ColumnName" : "salesdate",
+          "Length" : "–",
+          "MisFieldProperties" : "",
+          "DataType" : "DATE",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(50), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "state",
+          "TempOldColumnName" : "state",
+          "ColumnName" : "state",
+          "Length" : 50,
+          "MisFieldProperties" : "",
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(50), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "salesregion",
+          "TempOldColumnName" : "salesregion",
+          "ColumnName" : "salesregion",
+          "Length" : 50,
+          "MisFieldProperties" : "",
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : true,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "null_field=''",
+          "Signed" : false,
+          "Metadata" : "VARCHAR(10), Null, Unicode",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "currency",
+          "TempOldColumnName" : "currency",
+          "ColumnName" : "currency",
+          "Length" : 10,
+          "MisFieldProperties" : "",
+          "DataType" : "VARCHAR",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "quote=none, null_field=''",
+          "Signed" : false,
+          "Metadata" : "NUMERIC(10, 2), Null",
+          "Scale" : 2,
+          "TimeScale" : 0,
+          "OldColumnName" : "salestotal",
+          "TempOldColumnName" : "salestotal",
+          "ColumnName" : "salestotal",
+          "Length" : 10,
+          "MisFieldProperties" : "",
+          "DataType" : "NUMERIC",
+          "Key" : false,
+          "Nullable" : true
+        }, {
+          "Unicode" : false,
+          "Description" : "<none>\r\nSearchable? N ",
+          "APTFieldProperties" : "quote=none, null_field=''",
+          "Signed" : true,
+          "Metadata" : "INTEGER, Null",
+          "Scale" : 0,
+          "TimeScale" : 0,
+          "OldColumnName" : "quantitysold",
+          "TempOldColumnName" : "quantitysold",
+          "ColumnName" : "quantitysold",
+          "Length" : "–",
+          "MisFieldProperties" : "",
+          "DataType" : "INTEGER",
+          "Key" : false,
+          "Nullable" : true
+        } ],
+        "InputlinkOrderingList" : [ {
+          "link_label" : "Primary",
+          "link_name" : "transformedsales"
+        }, {
+          "link_label" : "Lookup 1",
+          "link_name" : "product_supplier"
+        }, {
+          "link_label" : "Lookup 2",
+          "link_name" : "customer"
+        }, {
+          "link_label" : "Lookup 3",
+          "link_name" : "date"
+        } ],
+        "output_count" : 1,
+        "primaryKeyColumnsItemstransformedsales" : [ ],
+        "execmode" : "default_par",
+        "input_count" : 4,
+        "hasPrimaryLink" : true
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "430a4f5c-2c84-475f-ad08-aa7c3e80d8d1",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "5f536416-b98b-4d21-83d3-fc17eec4e16f"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "43707e6a-b9ea-413a-b92a-51b01b39e60d",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "lookup_type" : "empty",
+          "max_mem_buf_size" : 3145728,
+          "has_ref_output" : true,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "REFERENCE",
+          "session.isolation_level" : "read_uncommitted",
+          "sql.select_statement.tables.table" : "",
+          "transaction.end_of_wave" : "none",
+          "outputAcpShouldHide" : true,
+          "enableSchemalessDesign" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.code_page" : "default",
+          "node_count" : 1,
+          "sql.select_statement.read_statement_from_file" : false,
+          "sql.select_statement.where_clause" : "",
+          "sql.select_statement.columns.column" : "",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "enableFlowAcpControl" : true,
+          "sql.select_statement" : "select productcode, productkey, supplierkey\nfrom em.dimproduct p, em.dimsupplier s\nwhere p.supplierid = s.supplierid\nand p.currentflag= 'Y'\nand s.currentflag= 'Y';",
+          "session.array_size" : 2000,
+          "sql.enable_partitioning" : false,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "before_after" : false,
+          "generate_sql" : false,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "7c5c1808-bbc0-4446-a124-712cf9928c5b",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 269.28,
+          "label" : "odbcDimproduct_dimsupplier",
+          "y_pos" : 126.72
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "76669c32-de4a-4a99-a10a-2d389c08b323",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "db16602c-6849-4340-b30c-6cefe1042941"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "9973ba71-9aea-4aeb-b897-d3864650c2ee",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "lookup_type" : "empty",
+          "max_mem_buf_size" : 3145728,
+          "has_ref_output" : true,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "REFERENCE",
+          "sql.select_statement.tables.table" : "",
+          "session.isolation_level" : "read_uncommitted",
+          "transaction.end_of_wave" : "none",
+          "outputAcpShouldHide" : true,
+          "enableSchemalessDesign" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.code_page" : "default",
+          "node_count" : 1,
+          "sql.select_statement.read_statement_from_file" : false,
+          "sql.select_statement.where_clause" : "",
+          "sql.select_statement.columns.column" : "",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "enableFlowAcpControl" : true,
+          "sql.select_statement" : "select customerid, customerkey\nfrom em.dimcustomer\nwhere currentflag= 'Y';",
+          "session.array_size" : 2000,
+          "sql.enable_partitioning" : false,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "before_after" : false,
+          "generate_sql" : false,
+          "transaction.record_count" : 2000,
+          "enable_quoted_i_ds" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "8a5c58cb-414c-458b-81b8-d138691c9cdc",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 364.32,
+          "label" : "odbcDimcustomer",
+          "y_pos" : 31.68
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "6fae1a8f-e196-499b-9f0b-f8c8cf131277",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "1f63b02f-fcf9-42b9-bb2e-1d451586f896"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 2147483647
+            }
+          },
+          "additionalProperties" : {
+            "enableAcp" : true
+          }
+        },
+        "schema_ref" : "378c34eb-65b7-4c68-9088-342709fdfbef",
+        "parameters" : {
+          "reject_uses" : "rows",
+          "buf_free_run" : 50,
+          "buf_mode" : "default",
+          "queue_upper_size" : 0,
+          "lookup_type" : "empty",
+          "max_mem_buf_size" : 3145728,
+          "has_ref_output" : true,
+          "reject_number" : 0,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "ODBCConnectorPX",
+      "connection" : {
+        "ref" : "72f937ae-333f-4dbe-a518-1598956e3868",
+        "properties" : {
+          "currentOutputLinkType" : "REFERENCE",
+          "session.isolation_level" : "read_uncommitted",
+          "session.pass_lob_locator" : false,
+          "limit_rows" : false,
+          "transaction.end_of_wave" : "none",
+          "session.schema_reconciliation.fail_on_size_mismatch" : true,
+          "outputAcpShouldHide" : true,
+          "enableFlowAcpControl" : true,
+          "enableSchemalessDesign" : false,
+          "session.array_size" : 2000,
+          "table_name" : "em.dimdate",
+          "sql.enable_partitioning" : false,
+          "session.autocommit_mode" : "off",
+          "node_number" : 0,
+          "session.schema_reconciliation.fail_on_type_mismatch" : true,
+          "session.code_page" : "default",
+          "before_after" : false,
+          "generate_sql" : true,
+          "transaction.record_count" : 2000,
+          "node_count" : 1,
+          "enable_quoted_i_ds" : false,
+          "sql.select_statement.read_statement_from_file" : false
+        },
+        "name" : "RDS postgres-dev_cp4d"
+      },
+      "id" : "f7a52da5-c086-47aa-bf55-cddf026f0754",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/ODBCConnectorPX.svg",
+          "x_pos" : 459.36,
+          "label" : "odbcDimdate",
+          "y_pos" : 126.72
+        }
+      },
+      "parameters" : {
+        "combinability" : "auto",
+        "output_count" : 1,
+        "input_count" : 0,
+        "execmode" : "default_par",
+        "preserve" : -3,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "5fa181b1-0b91-486b-bc43-c81abfc95c50",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "728871a6-6383-4d28-80df-55f4e9f69b50"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483647
+            }
+          }
+        },
+        "schema_ref" : "369dc30c-9d7d-4e48-8bc8-7b77bdded986",
+        "parameters" : {
+          "Reject" : false,
+          "RowLimit" : 0,
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        }
+      } ],
+      "op" : "CTransformerStage",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "7c14b2c0-7679-4ee8-9884-d8cf48ce8ade",
+          "type_attr" : "PRIMARY",
+          "id" : "90849c3d-bd66-4119-8206-2429d084c7c6",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--auto-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 2,
+                "width" : 50,
+                "tooltip" : "Auto-partition",
+                "x_pos" : -15,
+                "id" : "dec-6R",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "prefactsales",
+                "x_pos" : 0,
+                "label" : "prefactsales",
+                "label_allow_return_key" : "save",
+                "width" : 110,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "prefactsales",
+          "port_id_ref" : "70cd412d-ac07-4fb0-bac0-cda35708d86b"
+        } ],
+        "id" : "565114bf-05ce-440e-a559-89fbcf3ea306",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "0da3568e-7f69-4e7c-820f-7797ecaf480e",
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        }
+      } ],
+      "id" : "66637a6f-cc01-43c0-83c9-eab03f878d4f",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "565114bf-05ce-440e-a559-89fbcf3ea306",
+          "outputs_order" : "5fa181b1-0b91-486b-bc43-c81abfc95c50"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/CTransformerStage.svg",
+          "x_pos" : 696.96,
+          "label" : "txTransform",
+          "y_pos" : 269.28
+        }
+      },
+      "parameters" : {
+        "MaxLoopIterations" : 0,
+        "SurKeyStateFile" : "#psGlobal.LandingDir#/skfactsales",
+        "output_count" : 1,
+        "BlockSizeSelectedType" : "systemSelected",
+        "input_count" : 1,
+        "InitialValue" : "1",
+        "BlockSize" : 0,
+        "SKKeySourceType" : "file"
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxDataSet",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "66637a6f-cc01-43c0-83c9-eab03f878d4f",
+          "type_attr" : "PRIMARY",
+          "id" : "728871a6-6383-4d28-80df-55f4e9f69b50",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "image" : "/data-intg/flows/graphics/flows/link-output-handle--default-selected.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "x_pos" : -10,
+                "id" : "dec-3",
+                "position" : "source",
+                "y_pos" : -10,
+                "class_name" : "linkStartImage"
+              }, {
+                "image" : "/data-intg/flows/graphics/flows/link-marking--same-partitioning.svg",
+                "temporary" : false,
+                "outline" : false,
+                "distance" : 0,
+                "width" : 50,
+                "tooltip" : "Same partition",
+                "x_pos" : -15,
+                "id" : "dec-9K",
+                "position" : "middle",
+                "y_pos" : 4,
+                "height" : 50
+              }, {
+                "temporary" : false,
+                "label_single_line" : true,
+                "label_align" : "center",
+                "tooltip" : "factsalesds",
+                "x_pos" : 0,
+                "label" : "factsalesds",
+                "label_allow_return_key" : "save",
+                "width" : 83,
+                "label_editable" : true,
+                "id" : "dec-8",
+                "position" : "middle",
+                "y_pos" : -20,
+                "height" : 20
+              } ],
+              "class_name" : "linkStyle__runMetricsLinkDefaultStyle___ixW31"
+            }
+          },
+          "link_name" : "factsalesds",
+          "port_id_ref" : "5fa181b1-0b91-486b-bc43-c81abfc95c50"
+        } ],
+        "id" : "af23b2db-500a-489b-9952-86f06fcb1f63",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "schema_ref" : "369dc30c-9d7d-4e48-8bc8-7b77bdded986",
+        "parameters" : {
+          "datasetmode" : ">| [ds",
+          "dataAssetName" : "#psGlobal.DatasetDir#/factsales.ds",
+          "part_type" : "same",
+          "part_coll" : "part_type",
+          "dataset" : "#psGlobal.DatasetDir#/factsales.ds",
+          "runtime_column_propagation" : 0,
+          "registerDataAsset" : false
+        }
+      } ],
+      "id" : "aca8a29e-e2e1-40cc-aa78-722c433189b1",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 871.2,
+          "label" : "dsFactsalesds",
+          "y_pos" : 269.28
+        }
+      },
+      "parameters" : {
+        "output_count" : 0,
+        "input_count" : 1,
+        "allow_column_mapping" : false
+      }
+    } ],
+    "description" : "Prepare data for load to Sales fact table",
+    "id" : "77966d77-590a-4ef6-abc2-2bba862ffd93",
+    "app_data" : {
+      "datastage" : {
+        "nls_map_name" : "UTF-8",
+        "runtime_column_propagation" : "false",
+        "nls_locale" : "OFF"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "d4e99c1a-1c73-4f60-8123-0bdac5e94f0f",
+    "name" : "psDatabaseConnect"
+  }, {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "4a504c04-83bb-46a5-a12f-8eb3546af083",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "salesid",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "salesid",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customerid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salesamount",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "salesamount",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salesdate",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "salesdate",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "state",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "state",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salesregion",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "salesregion",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "currency",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "currency",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salestotal",
+      "type" : "double",
+      "app_data" : {
+        "column_reference" : "salestotal",
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "quantitysold",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "quantitysold",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.transformedsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "0da3568e-7f69-4e7c-820f-7797ecaf480e",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "transformedsales.salesid",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "salesid",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "transformedsales.salesamount",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salesamount",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "transformedsales.salestotal",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salestotal",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "transformedsales.quantitysold",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "quantitysold",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "product_supplier.productkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "productkey",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "product_supplier.supplierkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "supplierkey",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "source_field_id" : "customer.customerkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "customerkey",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "date.datekey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "datekey",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "43707e6a-b9ea-413a-b92a-51b01b39e60d",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 50,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "productcode",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "productcode",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "productkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "productkey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimproduct",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "supplierkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "supplierkey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimsupplier",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "9973ba71-9aea-4aeb-b897-d3864650c2ee",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 11,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "customerid",
+      "type" : "string",
+      "app_data" : {
+        "column_reference" : "customerid",
+        "time_scale" : 0,
+        "odbc_type" : "VARCHAR",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimcustomer",
+        "array_handling" : 0,
+        "is_unicode_string" : true,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "customerkey",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "378c34eb-65b7-4c68-9088-342709fdfbef",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "datekey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "datekey",
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : true,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "date",
+      "type" : "date",
+      "app_data" : {
+        "column_reference" : "date",
+        "time_scale" : 0,
+        "odbc_type" : "DATE",
+        "apt_field_properties" : "null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.dimdate",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    } ]
+  }, {
+    "id" : "369dc30c-9d7d-4e48-8bc8-7b77bdded986",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.salesid",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "salesid",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.customerkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "customerkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "customerkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.factsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.productkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "productkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "productkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.factsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.supplierkey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "supplierkey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "supplierkey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.factsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.datekey",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "datekey",
+      "type" : "integer",
+      "app_data" : {
+        "column_reference" : "datekey",
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "table_def" : "ODBC-postgreSQL-ww2_117.factsales",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.salesamount",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salesamount",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.quantitysold",
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : true,
+      "name" : "quantitysold",
+      "type" : "integer",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 2,
+        "decimal_precision" : 10,
+        "description" : "<none>\r\nSearchable? N ",
+        "source_field_id" : "prefactsales.salestotal",
+        "max_length" : 10,
+        "is_signed" : false
+      },
+      "nullable" : true,
+      "name" : "salestotal",
+      "type" : "double",
+      "app_data" : {
+        "time_scale" : 0,
+        "odbc_type" : "NUMERIC",
+        "apt_field_properties" : "quote=none, null_field=''",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DECIMAL"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "93f7e632-84cb-475e-939c-edd8478e5f8c",
+  "app_data" : {
+    "datastage" : {
+      "timestamp_format" : "%yyyy-%mm-%dd %hh:%nn:%ss",
+      "decimal_separator" : ".",
+      "flowRunPriorityQueue" : "Medium",
+      "time_format" : "%hh:%nn:%ss",
+      "external_message_handlers" : [ ],
+      "date_format" : "%yyyy-%mm-%dd",
+      "message_handlers" : [ ],
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "transInputLinkMapper" : {
+        "66637a6f-cc01-43c0-83c9-eab03f878d4f" : "prefactsales"
+      },
+      "ELTDropdown" : {
+        "id" : "nesting",
+        "label" : "Generate nested SQL",
+        "value" : "NESTED_QUERY"
+      },
+      "saveChangeFrequency" : "apply_changes_temporarily",
+      "disableParamsCacheOnFlow" : false,
+      "rcpLinkList" : [ ],
+      "globalAcp" : true,
+      "enableRCP" : false,
+      "isNewTransActive" : false,
+      "enableSchemaLessDesign" : false,
+      "runMode" : "ETL"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ ]
+  }
+}

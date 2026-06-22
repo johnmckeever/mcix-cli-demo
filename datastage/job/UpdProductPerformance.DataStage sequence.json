@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdProductPerformance.DataStage sequence",
+    "description" : "",
+    "asset_id" : "85c17dd2-93c6-49a2-93ed-f862dc137027",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "3669634a-7bf1-4c9c-aa50-120a6f6e7c32",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "3669634a-7bf1-4c9c-aa50-120a6f6e7c32",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdProductPerformance",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdProductPerformance"
+    }
+  }
+}

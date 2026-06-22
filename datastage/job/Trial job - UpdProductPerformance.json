@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "name" : "Trial job - UpdProductPerformance",
+    "description" : "Trial job and run created for the pipeline: UpdProductPerformance",
+    "asset_id" : "4e140210-34ff-4571-a445-8331b16e668e",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "3669634a-7bf1-4c9c-aa50-120a6f6e7c32",
+      "description" : "Trial job and run created for the pipeline: UpdProductPerformance",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "sub_type" : "oflow_trial_run",
+        "pipeline_id" : "3669634a-7bf1-4c9c-aa50-120a6f6e7c32",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdProductPerformance",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdProductPerformance"
+    }
+  }
+}

@@ -1,0 +1,505 @@
+{
+  "primary_pipeline" : "85e6baec-561f-443b-a7d1-47dcaad8ecf2",
+  "pipelines" : [ {
+    "nodes" : [ {
+      "outputs" : [ {
+        "id" : "28c5ffad-fa69-4595-a51e-43042544bcfd",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "1416f9b2-01ca-46b2-8a39-1f909842d8b5"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "parameters" : {
+          "records" : "#NumRows#",
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        },
+        "schema_ref" : "198937b2-9582-4e03-9f88-249edd581ae5"
+      } ],
+      "op" : "PxRowGenerator",
+      "id" : "8ea625ed-187e-49c7-bb3f-ab22b3188d70",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxRowGenerator.svg",
+          "x_pos" : 72.0,
+          "label" : "rgDatesource",
+          "y_pos" : 192.0
+        }
+      },
+      "parameters" : {
+        "output_count" : 1,
+        "input_count" : 0,
+        "allow_column_mapping" : false
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "7a831f12-9cac-4379-a995-a811ea48be1f",
+        "app_data" : {
+          "datastage" : {
+            "is_source_of_link" : "071a236d-7f49-48a1-9767-7a5510c997a6"
+          },
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 2147483647
+            }
+          }
+        },
+        "parameters" : {
+          "Reject" : false,
+          "RowLimit" : 0,
+          "valueDerivation" : [ {
+            "parsedExpression" : "Trim(DateToString(svDate),\"-\",\"A\")",
+            "stageVars" : "svDate",
+            "columnName" : "date_key"
+          }, {
+            "parsedExpression" : "svDate",
+            "stageVars" : "svDate",
+            "columnName" : "date"
+          }, {
+            "parsedExpression" : "MonthDayFromDate(svDate)",
+            "stageVars" : "svDate",
+            "columnName" : "day"
+          }, {
+            "parsedExpression" : "svMonth",
+            "stageVars" : "svMonth",
+            "columnName" : "month"
+          }, {
+            "parsedExpression" : "YearFromDate(svDate)",
+            "stageVars" : "svDate",
+            "columnName" : "year"
+          }, {
+            "parsedExpression" : "If svMonth <= 3 Then \"Q1\" Else If svMonth <= 6 Then 'Q2' Else If svMonth <= 9 Then 'Q3' Else 'Q4'",
+            "stageVars" : "svMonth",
+            "columnName" : "quarter"
+          }, {
+            "parsedExpression" : "svDayofWeek",
+            "stageVars" : "svDayofWeek",
+            "columnName" : "day_of_week"
+          }, {
+            "parsedExpression" : "YearweekFromDate(svDate)",
+            "stageVars" : "svDate",
+            "columnName" : "week_of_year"
+          }, {
+            "parsedExpression" : "If svDayofWeek > 0 And svDayofWeek < 6 Then \"N\" Else \"Y\"",
+            "stageVars" : "svDayofWeek",
+            "columnName" : "is_weekend"
+          } ],
+          "buf_free_run" : 50,
+          "queue_upper_size" : 0,
+          "max_mem_buf_size" : 3145728,
+          "disk_write_inc" : 1048576
+        },
+        "schema_ref" : "47e72b26-8956-44e2-8675-ba8a84b9e6e8"
+      } ],
+      "op" : "CTransformerStage",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "8ea625ed-187e-49c7-bb3f-ab22b3188d70",
+          "type_attr" : "PRIMARY",
+          "id" : "1416f9b2-01ca-46b2-8a39-1f909842d8b5",
+          "link_name" : "datesource",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "path" : "",
+                "outline" : true,
+                "hotspot" : false,
+                "id" : "datesource",
+                "label" : "datesource",
+                "position" : "middle",
+                "class_name" : ""
+              } ]
+            }
+          },
+          "port_id_ref" : "28c5ffad-fa69-4595-a51e-43042544bcfd"
+        } ],
+        "id" : "ef6298f6-6d17-4450-8aff-6a536a785f03",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 1,
+              "max" : 1
+            }
+          }
+        },
+        "parameters" : {
+          "part_coll" : "part_type",
+          "runtime_column_propagation" : 0
+        },
+        "schema_ref" : "198937b2-9582-4e03-9f88-249edd581ae5"
+      } ],
+      "id" : "3ca42903-033b-4092-a939-8b368c4bee56",
+      "type" : "execution_node",
+      "app_data" : {
+        "datastage" : {
+          "inputs_order" : "ef6298f6-6d17-4450-8aff-6a536a785f03",
+          "outputs_order" : "7a831f12-9cac-4379-a995-a811ea48be1f"
+        },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/CTransformerStage.svg",
+          "x_pos" : 240.0,
+          "label" : "txDatesource",
+          "y_pos" : 192.0
+        }
+      },
+      "parameters" : {
+        "MaxLoopIterations" : 0,
+        "output_count" : 1,
+        "BlockSizeSelectedType" : "systemSelected",
+        "StageVariables" : [ {
+          "Precision" : 10,
+          "Derivation" : "DateOffsetByDays(InitialDate,datesource.Seed)",
+          "SqlType" : "DATE",
+          "Scale" : 0,
+          "Name" : "svDate"
+        }, {
+          "Precision" : 0,
+          "Derivation" : "MonthFromDate(svDate)",
+          "SqlType" : "INTEGER",
+          "Scale" : 0,
+          "Name" : "svMonth"
+        }, {
+          "Precision" : 0,
+          "Derivation" : "WeekdayFromDate(svDate)",
+          "SqlType" : "INTEGER",
+          "Scale" : 0,
+          "Name" : "svDayofWeek"
+        } ],
+        "input_count" : 1,
+        "BlockSize" : 0,
+        "SKKeySourceType" : "file"
+      }
+    }, {
+      "outputs" : [ {
+        "id" : "",
+        "app_data" : {
+          "ui_data" : {
+            "label" : "outPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        }
+      } ],
+      "op" : "PxDataSet",
+      "inputs" : [ {
+        "links" : [ {
+          "node_id_ref" : "3ca42903-033b-4092-a939-8b368c4bee56",
+          "type_attr" : "PRIMARY",
+          "id" : "071a236d-7f49-48a1-9767-7a5510c997a6",
+          "link_name" : "dimdateds",
+          "app_data" : {
+            "datastage" : { },
+            "ui_data" : {
+              "decorations" : [ {
+                "path" : "",
+                "outline" : true,
+                "hotspot" : false,
+                "id" : "dimdateds",
+                "label" : "dimdateds",
+                "position" : "middle",
+                "class_name" : ""
+              } ]
+            }
+          },
+          "port_id_ref" : "7a831f12-9cac-4379-a995-a811ea48be1f"
+        } ],
+        "id" : "aac1ec2d-96cf-4cde-9bc8-5c7c8cdf920c",
+        "app_data" : {
+          "datastage" : { },
+          "ui_data" : {
+            "label" : "inPort",
+            "cardinality" : {
+              "min" : 0,
+              "max" : 1
+            }
+          }
+        },
+        "parameters" : {
+          "datasetmode" : ">| [ds",
+          "part_coll" : "part_type",
+          "dataset" : "#psGlobal.DatasetDir#/dimdate.ds",
+          "runtime_column_propagation" : 0,
+          "registerDataAsset" : false
+        },
+        "schema_ref" : "47e72b26-8956-44e2-8675-ba8a84b9e6e8"
+      } ],
+      "id" : "bbf2bbbb-948a-40cd-9c45-1d2bbca58fd9",
+      "type" : "binding",
+      "app_data" : {
+        "datastage" : { },
+        "ui_data" : {
+          "image" : "/data-intg/flows/graphics/palette/PxDataSet.svg",
+          "x_pos" : 408.0,
+          "label" : "dsDimdate",
+          "y_pos" : 192.0
+        }
+      },
+      "parameters" : {
+        "output_count" : 0,
+        "input_count" : 1,
+        "allow_column_mapping" : false
+      }
+    } ],
+    "description" : "Create source data for Date dimension table",
+    "id" : "85e6baec-561f-443b-a7d1-47dcaad8ecf2",
+    "app_data" : {
+      "datastage" : {
+        "runtime_column_propagation" : "false"
+      },
+      "ui_data" : {
+        "comments" : [ ]
+      }
+    },
+    "runtime_ref" : "pxOsh"
+  } ],
+  "runtimes" : [ {
+    "name" : "pxOsh",
+    "id" : "pxOsh"
+  } ],
+  "external_paramsets" : [ {
+    "ref" : "4da873ac-c93b-4cae-92af-07758f3ff4c0",
+    "name" : "psGlobal"
+  } ],
+  "json_schema" : "https://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "schemas" : [ {
+    "id" : "198937b2-9582-4e03-9f88-249edd581ae5",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "Seed",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "cycle={init=0, incr=1}",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    } ]
+  }, {
+    "id" : "47e72b26-8956-44e2-8675-ba8a84b9e6e8",
+    "fields" : [ {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 10,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "date_key",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "apt_field_properties" : "cycle={init=1, incr=1}",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : false
+      },
+      "nullable" : false,
+      "name" : "date",
+      "type" : "date",
+      "app_data" : {
+        "odbc_type" : "DATE",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "DATE"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "day",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "month",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "year",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : false,
+      "name" : "quarter",
+      "type" : "string",
+      "app_data" : {
+        "odbc_type" : "VARCHAR",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "STRING"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 0,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "day_of_week",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 2,
+        "is_signed" : true
+      },
+      "nullable" : false,
+      "name" : "week_of_year",
+      "type" : "integer",
+      "app_data" : {
+        "odbc_type" : "INTEGER",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "INT32"
+      }
+    }, {
+      "metadata" : {
+        "item_index" : 0,
+        "is_key" : false,
+        "min_length" : 0,
+        "decimal_scale" : 0,
+        "decimal_precision" : 0,
+        "max_length" : 2,
+        "is_signed" : false
+      },
+      "nullable" : false,
+      "name" : "is_weekend",
+      "type" : "string",
+      "app_data" : {
+        "odbc_type" : "VARCHAR",
+        "array_handling" : 0,
+        "is_unicode_string" : false,
+        "type_code" : "STRING"
+      }
+    } ]
+  } ],
+  "doc_type" : "pipeline",
+  "id" : "3fc7f9f3-bcc1-4cf0-b62e-b9bdcfd779c9",
+  "app_data" : {
+    "datastage" : {
+      "version" : "3.0.5"
+    },
+    "additionalProperties" : {
+      "saveChangeFrequency" : "apply_changes_temporarily"
+    }
+  },
+  "version" : "3.0",
+  "parameters" : {
+    "local_parameters" : [ {
+      "name" : "InitialDate",
+      "type" : "date",
+      "prompt" : "Intitial Date",
+      "value" : "2023-01-01"
+    }, {
+      "name" : "NumRows",
+      "type" : "int64",
+      "prompt" : "Number of Rows",
+      "value" : "1825"
+    } ]
+  }
+}

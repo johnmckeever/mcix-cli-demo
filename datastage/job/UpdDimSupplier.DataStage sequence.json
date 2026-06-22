@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdDimSupplier.DataStage sequence",
+    "description" : "",
+    "asset_id" : "c734331d-1c58-4380-9905-71e94faf0cd3",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "e1935e59-7f3c-4398-ace4-61452cd7548a",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "e1935e59-7f3c-4398-ace4-61452cd7548a",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdDimSupplier",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdDimSupplier"
+    }
+  }
+}

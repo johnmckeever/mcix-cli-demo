@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "name" : "Trial job - UpdRegionSalesSummary",
+    "description" : "Trial job and run created for the pipeline: UpdRegionSalesSummary",
+    "asset_id" : "677aeaf6-f3dc-43fd-9990-74ae9e1420f1",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "22f2fe47-3ce3-4475-99a0-8572815cee4a",
+      "description" : "Trial job and run created for the pipeline: UpdRegionSalesSummary",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "sub_type" : "oflow_trial_run",
+        "pipeline_id" : "22f2fe47-3ce3-4475-99a0-8572815cee4a",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdRegionSalesSummary",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdRegionSalesSummary"
+    }
+  }
+}

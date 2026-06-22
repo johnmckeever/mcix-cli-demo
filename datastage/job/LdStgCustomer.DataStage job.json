@@ -1,0 +1,35 @@
+{
+  "metadata" : {
+    "name" : "LdStgCustomer.DataStage job",
+    "asset_id" : "bf2ad853-3680-460b-9e0e-b981cf0b4e7a",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "1e06e806-e30f-4cc5-afb6-6896adfa0ba2",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_id" : "ba5a0fbd-a6e1-4a5b-b88d-4967a465bb8f",
+        "env_type" : "data_intg_flow",
+        "flow_limits" : {
+          "warn_limit" : "100"
+        },
+        "env_variables" : [ ],
+        "runPriorityQueue" : "Medium"
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_type" : "data_intg_flow",
+      "job_parameters" : [ ],
+      "last_run_status" : "deprecated field",
+      "retention_policy" : { },
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "LdStgCustomer"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "metadata" : {
+    "name" : "Trial job - UpdFactSales",
+    "description" : "Trial job and run created for the pipeline: UpdFactSales",
+    "asset_id" : "03bfb1ca-391d-4600-8d89-f5d39d93982a",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "4c6fcbdc-a7ad-4dda-b8d6-eb043dee3a45",
+      "description" : "Trial job and run created for the pipeline: UpdFactSales",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "",
+        "sub_type" : "oflow_trial_run",
+        "pipeline_id" : "4c6fcbdc-a7ad-4dda-b8d6-eb043dee3a45",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdFactSales",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdFactSales"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdDailySalesSummary.DataStage sequence",
+    "description" : "",
+    "asset_id" : "c32508a4-308c-4fc7-8af2-340a00884593",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "ffe77cb5-3061-439b-97b9-a36546aef8a4",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "ffe77cb5-3061-439b-97b9-a36546aef8a4",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdDailySalesSummary",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdDailySalesSummary"
+    }
+  }
+}

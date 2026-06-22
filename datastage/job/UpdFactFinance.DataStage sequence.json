@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "UpdFactFinance.DataStage sequence",
+    "description" : "",
+    "asset_id" : "bcbd4f02-cdbf-4f17-ae6d-de1ceefd52b2",
+    "owner_id" : "1000331066",
+    "version" : 0
+  },
+  "entity" : {
+    "job" : {
+      "asset_ref" : "6582c4a7-393c-49c4-bfd6-23d1ec385596",
+      "description" : "",
+      "schedule_id" : "",
+      "project_name" : "electromart",
+      "configuration" : {
+        "env_type" : "orchestration_flow",
+        "pipeline_id" : "6582c4a7-393c-49c4-bfd6-23d1ec385596",
+        "env_variables" : [ ]
+      },
+      "last_run_time" : "deprecated field",
+      "asset_ref_name" : "UpdFactFinance",
+      "asset_ref_type" : "orchestration_flow",
+      "last_run_status" : "deprecated field",
+      "last_run_initiator" : "deprecated field",
+      "schedule_creator_id" : "",
+      "enable_notifications" : true,
+      "future_scheduled_runs" : [ ],
+      "last_run_status_timestamp" : 0,
+      "flow_name" : "UpdFactFinance"
+    }
+  }
+}
